@@ -1,10 +1,6 @@
 # Starbucks Clone Application Deployment on AWS Using a DevSecOps Approach
 
----
-
 Welcome to the comprehensive guide for deploying a Starbucks Clone application on AWS using a DevSecOps approach. This README will guide you through setting up the essential tools and configurations for secure and scalable deployment using Jenkins, Docker, Trivy, and Docker Scout.
-
----
 
 ## Prerequisites
 
@@ -14,8 +10,6 @@ Before we begin, ensure you have:
 - **Sufficient privileges** to install and manage packages
 - **AWS account** set up for deployments
 - **Docker Hub account** for image storage
-
----
 
 ## Table of Contents
 
@@ -125,7 +119,7 @@ curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | 
 ## **Deployment Stages**
 
 Below is a high-level overview of the deployment stages:
-![Deployment Stages Diagram](url)
+![Deployment Stages Diagram](https://github.com/whatDeepak/starbucks-clone/blob/main/public/steps.png)
 
 ---
 
