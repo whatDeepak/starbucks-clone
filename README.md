@@ -145,7 +145,7 @@ pipeline {
         }
         stage("Git Checkout") {
             steps {
-                git branch: 'main', url: 'https://github.com/yeshwanthlm/starbucks.git'
+                git branch: 'main', url: 'https://github.com/whatDeepak/starbucks-clone.git'
             }
         }
         stage("SonarQube Analysis") {
@@ -187,8 +187,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                        sh "docker tag starbucks amonkincloud/starbucks:latest"
-                        sh "docker push amonkincloud/starbucks:latest"
+                        sh "docker tag starbucks <docker_hub_id>/starbucks:latest"
+                        sh "docker push <docker_hub_id>/starbucks:latest"
                     }
                 }
             }
@@ -197,16 +197,16 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker', toolName: 'docker') {
-                        sh 'docker-scout quickview amonkincloud/starbucks:latest'
-                        sh 'docker-scout cves amonkincloud/starbucks:latest'
-                        sh 'docker-scout recommendations amonkincloud/starbucks:latest'
+                        sh 'docker-scout quickview <docker_hub_id>/starbucks:latest'
+                        sh 'docker-scout cves <docker_hub_id>/starbucks:latest'
+                        sh 'docker-scout recommendations <docker_hub_id>/starbucks:latest'
                     }
                 }
             }
         }
         stage("Deploy to Container") {
             steps {
-                sh "docker run -d --name starbucks -p 3000:3000 amonkincloud/starbucks:latest"
+                sh "docker run -d --name starbucks -p 3000:3000 <docker_hub_id>/starbucks:latest"
             }
         }
     }
